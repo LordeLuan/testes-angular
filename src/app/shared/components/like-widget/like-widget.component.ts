@@ -10,10 +10,10 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 export class LikeWidgetComponent implements OnInit {
   @Output() public liked = new EventEmitter<void>();
   @Input() public likes = 0;
-  @Input() public id = null;
+  @Input() public id: string = null;
 
   public fonts = {
-    faThumbsUp
+    faThumbsUp,
   };
 
   constructor(private uniqueServiceId: UniqueServiceId) {}
@@ -24,7 +24,7 @@ export class LikeWidgetComponent implements OnInit {
     }
   }
 
-  like(): void{
+  like(): void {
     this.liked.emit();
   }
 }
